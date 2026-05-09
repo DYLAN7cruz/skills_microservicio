@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: microservicio_skills
+  datasource:
+    url: jdbc:postgresql://localhost:5432/microservicio_skills  # Cambia por el nombre de tu BD
+    username: postgres                                    # Cambia por tu usuario de Postgres (ej. postgres)
+    password: 2004                               # Cambia por tu contraseña
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # Útil para que cree las tablas automáticamente mientras desarrollas
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8080 # Puerto donde correrá el microservicio
+
+# Apagamos Eureka temporalmente para evitar errores al probar localmente si no tienes el Discovery Server
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
